@@ -1,5 +1,5 @@
 export type State = string;
-export type Alphabet = string;
+export type Alphabet = string | number;
 
 export type OptionalTransitions<ST extends State, SY extends Alphabet> = {
   [key in SY]?: ST;
@@ -31,11 +31,11 @@ export class FiniteStateMachine<
     states: StatesList,
     alphabet: SY[],
     initialState: StatesList[number],
-    acceptingStates: [StatesList[number]],
+    acceptingStates: Array<StatesList[number]>,
     transitions: InpuTransitions<StatesList[number], SY> = {}
   ) {
     this.states = new Set(states);
-    this.alphabet = new Set(alphabet);
+    this.alphabet = new Set(alphabet.map(v => `${v}`));
     this.initialState = initialState;
     this.acceptingStates = new Set(acceptingStates);
     this.transitions = this.convertInputTransitionsToMap(transitions);

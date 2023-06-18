@@ -1,9 +1,8 @@
-import "./style.css";
 import { FiniteStateMachine } from "../../src/FiniteStateMachine";
 
 const fsm = new FiniteStateMachine(
   ["S0", "S1", "S2"],
-  ["0", "1"],
+  [0, 1],
   "S0",
   ["S0", "S1", "S2"],
   {
@@ -38,9 +37,10 @@ export const setupCalculator = (
     const htmlTarget = event.target as HTMLElement;
     if (element.contains(htmlTarget)) {
       const input = htmlTarget.innerHTML;
+      console.log("Will run with input: ", input);
       if (!isNaN(+input)) {
         try {
-          resultTarget!.innerHTML = `Result: ${fsm.run(+input as any)}`;
+          resultTarget!.innerHTML = `Result: ${fsm.run(input as any)}`;
         } catch (error) {
           resultTarget!.innerHTML = `
             Failed to run. <br> <span class="error">${error}</span>

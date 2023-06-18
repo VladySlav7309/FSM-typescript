@@ -44,10 +44,7 @@ export class FiniteStateMachine<
   private convertInputTransitionsToMap = (
     transitions: InpuTransitions<ST, SY>
   ): TransitionsMap<ST, SY> => {
-    const statesKeys = Object.keys(transitions) as ST[];
-    if (!statesKeys.length) {
-      throw new Error("Transitions Map has no states");
-    }
+    const statesKeys = (Object.keys(transitions) || []) as ST[];
     const initial: TransitionsMap<ST, SY> = new Map();
 
     return statesKeys.reduce((acc, stateName: ST) => {

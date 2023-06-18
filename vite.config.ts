@@ -34,6 +34,8 @@ module.exports = defineConfig({
     },
   },
   test: {
-
+    coverage: {
+      reporter: ["text", "html"]
+    }
   }
 });

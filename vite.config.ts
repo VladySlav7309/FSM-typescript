@@ -24,16 +24,6 @@ const fileName = {
 const formats = Object.keys(fileName) as Array<keyof typeof fileName>;
 
 module.exports = defineConfig(({ mode }) => {
-  if (mode === 'example') {
-    return {
-      base: "./",
-      build: {
-        entry: path.resolve(__dirname, "/examples/module-three/index.html"),
-        sourcemap: 'inline',
-      },
-    }
-  }
-
   return {
     base: "./",
     build: {

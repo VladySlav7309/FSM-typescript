@@ -18,6 +18,8 @@
     "test:coverage": "vitest --coverage",
     "lint:scripts": "eslint . --ext .ts",
     "format:scripts": "prettier . --write",
+    "lint:examples": "eslint ./examples --ext .ts --fix",
+    "format:examples": "prettier ./examples --write",
     "format": "npm run format:scripts",
     "prepare": "husky install && husky set .husky/pre-commit 'npx lint-staged' && git add .husky/pre-commit && npx husky add .husky/pre-push 'npm run test:single-pass' && git add .husky/pre-push",
     "uninstall-husky": "npm uninstall husky --no-save && git config --unset core.hooksPath && npx rimraf .husky"

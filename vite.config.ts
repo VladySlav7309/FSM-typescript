@@ -23,19 +23,21 @@ const fileName = {
 
 const formats = Object.keys(fileName) as Array<keyof typeof fileName>;
 
-module.exports = defineConfig({
-  base: "./",
-  build: {
-    lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
-      name: getPackageNameCamelCase(),
-      formats,
-      fileName: (format) => fileName[format],
+module.exports = defineConfig(({ mode }) => {
+  return {
+    base: "./",
+    build: {
+      lib: {
+        entry: path.resolve(__dirname, "src/index.ts"),
+        name: getPackageNameCamelCase(),
+        formats,
+        fileName: (format) => fileName[format],
+      },
     },
-  },
-  test: {
-    coverage: {
-      reporter: ["text", "html"]
+    test: {
+      coverage: {
+        reporter: ["text", "html"]
+      }
     }
   }
 });

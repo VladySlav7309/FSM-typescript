@@ -1,28 +1,28 @@
 export type State = string;
-export type Symbol = string;
+export type Alphabet = string;
 
-export type OptionalTransitions<ST extends State, SY extends Symbol> = {
+export type OptionalTransitions<ST extends State, SY extends Alphabet> = {
   [key in SY]?: ST;
 };
 
-export type InpuTransitions<ST extends State, SY extends Symbol> = {
+export type InpuTransitions<ST extends State, SY extends Alphabet> = {
   [key in ST]?: {
     on: OptionalTransitions<ST, SY>;
   };
 };
 
-export type TransitionsMap<ST extends State, SY extends Symbol> = Map<
+export type TransitionsMap<ST extends State, SY extends Alphabet> = Map<
   State,
   OptionalTransitions<ST, SY>
 >;
 
 export class FiniteStateMachine<
   ST extends State,
-  SY extends Symbol,
+  SY extends Alphabet,
   StatesList extends ST[] = ST[]
 > {
   private states: Set<State>;
-  private alphabet: Set<Symbol>;
+  private alphabet: Set<Alphabet>;
   private initialState: ST;
   private acceptingStates: Set<State>;
   private transitions: TransitionsMap<ST, SY>;

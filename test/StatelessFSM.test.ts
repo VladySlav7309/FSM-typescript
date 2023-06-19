@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import { StatelessFSM } from "../src/StatelessFSM";
-import { Alphabet } from "../src/model/FSM.model";
 
 describe("Stateless State Machine", () => {
   const fsm = new StatelessFSM({

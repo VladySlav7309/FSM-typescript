@@ -40,9 +40,9 @@ export const setupCalculator = (
       console.log("Will run with input: ", input);
       if (!isNaN(+input)) {
         try {
-          resultTarget!.innerHTML = `Result: ${fsm.run(input as any)}`;
+          resultTarget.innerHTML = `Result: ${fsm.run(input as any)}`;
         } catch (error) {
-          resultTarget!.innerHTML = `
+          resultTarget.innerHTML = `
             Failed to run. <br> <span class="error">${error}</span>
           `;
         }

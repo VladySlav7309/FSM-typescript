@@ -1,11 +1,11 @@
-import { FiniteStateMachine } from "../../src/FiniteStateMachine";
+import { StatelessFSM } from "../../src/StatelessFSM";
 
-const fsm = new FiniteStateMachine(
-  ["S0", "S1", "S2"],
-  [0, 1],
-  "S0",
-  ["S0", "S1", "S2"],
-  {
+const fsm = new StatelessFSM({
+  states: ["S0", "S1", "S2"],
+  alphabet: [0, 1],
+  initialState: "S0",
+  acceptingStates: ["S0", "S1", "S2"],
+  transitions: {
     S0: {
       on: {
         0: "S0",
@@ -24,8 +24,8 @@ const fsm = new FiniteStateMachine(
         1: "S2",
       },
     },
-  }
-);
+  },
+});
 
 window.fsm = fsm;
 

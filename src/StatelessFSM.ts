@@ -1,4 +1,3 @@
-import { run } from "node:test";
 import { FiniteStateMachine } from "./FiniteStateMachine";
 import { State, Alphabet } from "./model/FSM.model";
 import {
